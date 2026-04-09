@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GPS Photo Report</title>
+  <style>
+    :root {
+      --bg: #0b1f4d;
+      --bg-2: #12377f;
+      --card: rgba(255,255,255,0.08);
+      --card-border: rgba(255,255,255,0.12);
+      --text: #f7fbff;
+      --muted: #c8d8f3;
+      --accent: #ff6b5f;
+      --max: 1100px;
+      --radius: 26px;
+      --shadow: 0 24px 80px rgba(0,0,0,0.28);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left, #2768dc 0%, rgba(39,104,220,0.12) 28%, transparent 42%),
+        linear-gradient(160deg, var(--bg-2), var(--bg));
+      min-height: 100vh;
+    }
+
+    .container {
+      width: min(calc(100% - 32px), var(--max));
+      margin: 0 auto;
+    }
+
+    header {
+      padding: 20px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+      backdrop-filter: blur(10px);
+    }
+
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 700;
+    }
+
+    .brand img {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      box-shadow: 0 10px 28px rgba(0,0,0,0.25);
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .lang-switch {
+      display: inline-flex;
+      gap: 8px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 999px;
+      padding: 6px;
+    }
+
+    .lang-switch button {
+      border: 0;
+      background: transparent;
+      color: var(--text);
+      padding: 8px 14px;
+      border-radius: 999px;
+      cursor: pointer;
+      font-weight: 600;
+    }
+
+    .lang-switch button.active {
+      background: var(--accent);
+    }
+
+    .btn {
+      background: var(--accent);
+      color: white;
+      padding: 12px 18px;
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: 600;
+      display: inline-block;
+    }
+
+    .hero {
+      padding: 60px 0 40px;
+    }
+
+    h1 {
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      margin: 0 0 16px;
+      letter-spacing: -0.04em;
+      line-height: 1.02;
+    }
+
+    .lead {
+      color: var(--muted);
+      line-height: 1.75;
+      max-width: 760px;
+      font-size: 1.08rem;
+      margin: 0;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius);
+      padding: 24px;
+      box-shadow: var(--shadow);
+      margin-top: 20px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .screens {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-top: 16px;
+    }
+
+    .screen {
+      aspect-ratio: 9/19.5;
+      border-radius: 24px;
+      border: 1px dashed rgba(255,255,255,0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: var(--muted);
+      padding: 10px;
+      background: rgba(255,255,255,0.03);
+      font-weight: 600;
+      line-height: 1.5;
+    }
+
+    h2 {
+      margin-top: 0;
+      margin-bottom: 12px;
+      font-size: 1.5rem;
+      letter-spacing: -0.02em;
+    }
+
+    p, li {
+      color: var(--muted);
+      line-height: 1.75;
+    }
+
+    ul {
+      margin: 0;
+      padding-left: 18px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 40px 0;
+      color: var(--muted);
+    }
+
+    .links a {
+      color: white;
+    }
+
+    [data-lang] { display: none; }
+    body.lang-en [data-lang="en"] { display: block; }
+    body.lang-pt [data-lang="pt"] { display: block; }
+    body.lang-en [data-lang-inline="en"],
+    body.lang-pt [data-lang-inline="pt"] { display: inline; }
+    body.lang-en [data-lang-inline="pt"],
+    body.lang-pt [data-lang-inline="en"] { display: none; }
+
+    @media (max-width: 800px) {
+      .grid, .screens {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding: 42px 0 28px;
+      }
+    }
+  </style>
+</head>
+<body class="lang-en">
+  <header>
+    <div class="container nav">
+      <div class="brand">
+        <img src="../../assets/Icon-1024.png" alt="GPS Photo Report icon" />
+        <div>GPS Photo Report</div>
+      </div>
+      <div class="header-actions">
+        <div class="lang-switch" aria-label="Language selector">
+          <button class="active" data-set-lang="en">EN</button>
+          <button data-set-lang="pt">PT</button>
+        </div>
+        <a class="btn" href="#download">
+          <span data-lang-inline="en">App Store (soon)</span>
+          <span data-lang-inline="pt">App Store (em breve)</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div data-lang="en">
+        <h1>Professional photo reports with GPS location</h1>
+        <p class="lead">
+          GPS Photo Report allows you to create professional photo reports with GPS location, watermark and PDF export.
+          You can add GPS location to photos and videos, even if the device that recorded them did not have GPS.
+        </p>
+      </div>
+      <div data-lang="pt">
+        <h1>Relatórios fotográficos profissionais com localização GPS</h1>
+        <p class="lead">
+          O GPS Photo Report permite criar relatórios fotográficos profissionais com localização GPS, marca d’água e exportação em PDF.
+          Você pode adicionar localização em fotos e vídeos, mesmo quando o dispositivo que os gravou não salvou dados de GPS.
+        </p>
+      </div>
+    </section>
+
+    <section class="grid">
+      <div class="card">
+        <div data-lang="en">
+          <h2>Main features</h2>
+          <ul>
+            <li>Take photos with GPS location</li>
+            <li>Add GPS location to existing photos</li>
+            <li>Add GPS location to existing videos</li>
+            <li>Choose location from map</li>
+            <li>Copy GPS from another photo</li>
+            <li>GPS watermark on photos</li>
+            <li>Save photos to the app album</li>
+            <li>Export photo report to PDF</li>
+            <li>Share photos and PDF reports</li>
+          </ul>
+        </div>
+        <div data-lang="pt">
+          <h2>Principais recursos</h2>
+          <ul>
+            <li>Tire fotos com localização GPS</li>
+            <li>Adicione GPS em fotos existentes</li>
+            <li>Adicione GPS em vídeos existentes</li>
+            <li>Escolha a localização pelo mapa</li>
+            <li>Copie o GPS de outra foto</li>
+            <li>Adicione marca d’água nas fotos</li>
+            <li>Salve as fotos no álbum do app</li>
+            <li>Exporte o relatório em PDF</li>
+            <li>Compartilhe fotos e relatórios em PDF</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="card">
+        <div data-lang="en">
+          <h2>Perfect for</h2>
+          <ul>
+            <li>Construction sites</li>
+            <li>Inspections</li>
+            <li>Engineering</li>
+            <li>Real estate</li>
+            <li>Insurance</li>
+            <li>Agriculture</li>
+            <li>Maintenance</li>
+            <li>Field work</li>
+            <li>Technical reports</li>
+          </ul>
+        </div>
+        <div data-lang="pt">
+          <h2>Ideal para</h2>
+          <ul>
+            <li>Obras</li>
+            <li>Inspeções</li>
+            <li>Engenharia</li>
+            <li>Mercado imobiliário</li>
+            <li>Seguros</li>
+            <li>Agricultura</li>
+            <li>Manutenção</li>
+            <li>Trabalho de campo</li>
+            <li>Relatórios técnicos</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="card">
+      <div data-lang="en">
+        <h2>App Screenshots</h2>
+      </div>
+      <div data-lang="pt">
+        <h2>Telas do app</h2>
+      </div>
+      <div class="screens">
+        <div class="screen"><span data-lang-inline="en">Photos with GPS</span><span data-lang-inline="pt">Fotos com GPS</span></div>
+        <div class="screen"><span data-lang-inline="en">Choose Location on Map</span><span data-lang-inline="pt">Escolha a localização no mapa</span></div>
+        <div class="screen"><span data-lang-inline="en">Copy Location from Photo</span><span data-lang-inline="pt">Copie a localização de outra foto</span></div>
+        <div class="screen"><span data-lang-inline="en">Add Watermark</span><span data-lang-inline="pt">Adicione marca d’água</span></div>
+        <div class="screen"><span data-lang-inline="en">Select Photos</span><span data-lang-inline="pt">Selecione fotos</span></div>
+        <div class="screen"><span data-lang-inline="en">Export PDF Report</span><span data-lang-inline="pt">Exporte relatório em PDF</span></div>
+      </div>
+    </section>
+
+    <section class="card" id="download">
+      <div data-lang="en">
+        <h2>Coming soon to the App Store</h2>
+        <p>When the app is published, add the App Store link here.</p>
+      </div>
+      <div data-lang="pt">
+        <h2>Em breve na App Store</h2>
+        <p>Quando o app for publicado, adicione aqui o link da App Store.</p>
+      </div>
+      <p class="links">
+        <span data-lang-inline="en">Support:</span>
+        <span data-lang-inline="pt">Suporte:</span>
+        <a href="mailto:support@infraapps.app">support@infraapps.app</a><br />
+        <span data-lang-inline="en">Privacy Policy:</span>
+        <span data-lang-inline="pt">Política de Privacidade:</span>
+        <a href="privacy.html"><span data-lang-inline="en">View Privacy Policy</span><span data-lang-inline="pt">Ver Política de Privacidade</span></a><br />
+        <span data-lang-inline="en">Back to Infra Apps:</span>
+        <span data-lang-inline="pt">Voltar para Infra Apps:</span>
+        <a href="../../index.html">infraapps.app</a>
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    GPS Photo Report • Landing page
+  </footer>
+
+  <script>
+    const buttons = document.querySelectorAll('[data-set-lang]');
+    const storedLang = localStorage.getItem('infraapps-lang');
+    const browserLang = (navigator.language || 'en').toLowerCase().startsWith('pt') ? 'pt' : 'en';
+    const initialLang = storedLang || browserLang;
+
+    function setLang(lang) {
+      document.body.classList.remove('lang-en', 'lang-pt');
+      document.body.classList.add(`lang-${lang}`);
+      localStorage.setItem('infraapps-lang', lang);
+      buttons.forEach(btn => btn.classList.toggle('active', btn.dataset.setLang === lang));
+      document.documentElement.lang = lang === 'pt' ? 'pt-BR' : 'en';
+    }
+
+    buttons.forEach(btn => btn.addEventListener('click', () => setLang(btn.dataset.setLang)));
+    setLang(initialLang);
+  </script>
+</body>
+</html>

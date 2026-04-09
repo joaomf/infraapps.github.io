@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GPS Photo Report – Privacy Policy</title>
+  <style>
+    :root {
+      --bg: #0b1f4d;
+      --bg-2: #12377f;
+      --card: rgba(255,255,255,0.08);
+      --card-border: rgba(255,255,255,0.12);
+      --text: #f7fbff;
+      --muted: #c8d8f3;
+      --accent: #ff6b5f;
+      --max: 920px;
+      --radius: 26px;
+      --shadow: 0 24px 80px rgba(0,0,0,0.28);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left, #2768dc 0%, rgba(39,104,220,0.12) 28%, transparent 42%),
+        linear-gradient(160deg, var(--bg-2), var(--bg));
+      min-height: 100vh;
+    }
+
+    .grid::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.08) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.08) 1px, transparent 1px);
+      background-size: 64px 64px;
+      opacity: 0.35;
+      mask-image: linear-gradient(to bottom, rgba(0,0,0,0.85), rgba(0,0,0,0.25));
+    }
+
+    .container {
+      width: min(calc(100% - 32px), var(--max));
+      margin: 0 auto;
+    }
+
+    header {
+      padding: 28px 0 12px;
+    }
+
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: var(--text);
+      font-weight: 700;
+    }
+
+    .brand img {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      box-shadow: 0 10px 28px rgba(0,0,0,0.28);
+    }
+
+    .top-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .back {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 46px;
+      padding: 0 18px;
+      border-radius: 999px;
+      text-decoration: none;
+      color: var(--text);
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.14);
+      font-weight: 600;
+    }
+
+    .lang-switch {
+      display: inline-flex;
+      gap: 8px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 999px;
+      padding: 6px;
+    }
+
+    .lang-switch button {
+      border: 0;
+      background: transparent;
+      color: var(--text);
+      padding: 8px 14px;
+      border-radius: 999px;
+      cursor: pointer;
+      font-weight: 600;
+    }
+
+    .lang-switch button.active {
+      background: var(--accent);
+    }
+
+    .hero {
+      padding: 10px 0 24px;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.1);
+      color: #dbe8ff;
+      font-size: 0.92rem;
+      margin-bottom: 16px;
+    }
+
+    h1 {
+      margin: 0 0 14px;
+      font-size: clamp(2.2rem, 5vw, 3.8rem);
+      line-height: 1.02;
+      letter-spacing: -0.04em;
+    }
+
+    .lead {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.8;
+      font-size: 1.08rem;
+      max-width: 760px;
+    }
+
+    .policy {
+      background: rgba(255,255,255,0.07);
+      border: 1px solid var(--card-border);
+      border-radius: 30px;
+      box-shadow: var(--shadow);
+      padding: 28px;
+      margin-bottom: 28px;
+    }
+
+    .meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 0 0 18px;
+    }
+
+    .pill {
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.1);
+      color: #eaf2ff;
+      font-size: 0.92rem;
+      font-weight: 600;
+    }
+
+    section {
+      margin-top: 24px;
+      padding-top: 8px;
+    }
+
+    h2 {
+      margin: 0 0 10px;
+      font-size: 1.35rem;
+      letter-spacing: -0.02em;
+    }
+
+    p, li {
+      color: var(--muted);
+      line-height: 1.8;
+      font-size: 1rem;
+    }
+
+    ul {
+      margin: 0;
+      padding-left: 18px;
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius);
+      padding: 20px;
+    }
+
+    footer {
+      padding: 8px 0 36px;
+      color: var(--muted);
+      text-align: center;
+      font-size: 0.95rem;
+    }
+
+    [data-lang] { display: none; }
+    body.lang-en [data-lang="en"] { display: block; }
+    body.lang-pt [data-lang="pt"] { display: block; }
+    body.lang-en [data-lang-inline="en"],
+    body.lang-pt [data-lang-inline="pt"] { display: inline; }
+    body.lang-en [data-lang-inline="pt"],
+    body.lang-pt [data-lang-inline="en"] { display: none; }
+
+    @media (max-width: 760px) {
+      .two-col { grid-template-columns: 1fr; }
+      .policy { padding: 22px; }
+    }
+  </style>
+</head>
+<body class="lang-en">
+  <div class="grid"></div>
+
+  <header>
+    <div class="container topbar">
+      <a class="brand" href="index.html">
+        <img src="../../assets/Icon-1024.png" alt="GPS Photo Report icon" />
+        <span>GPS Photo Report</span>
+      </a>
+      <div class="top-actions">
+        <div class="lang-switch" aria-label="Language selector">
+          <button class="active" data-set-lang="en">EN</button>
+          <button data-set-lang="pt">PT</button>
+        </div>
+        <a class="back" href="index.html">
+          <span data-lang-inline="en">Back to product page</span>
+          <span data-lang-inline="pt">Voltar para a página do app</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main id="top" class="container">
+    <section class="hero">
+      <div data-lang="en">
+        <div class="eyebrow">Privacy Policy</div>
+        <h1>Privacy Policy for GPS Photo Report</h1>
+        <p class="lead">
+          GPS Photo Report is designed to help users create professional photo reports with GPS location, watermark and PDF export.
+          This privacy policy explains what the app accesses, how it is used, and the current privacy approach for the app.
+        </p>
+      </div>
+      <div data-lang="pt">
+        <div class="eyebrow">Política de Privacidade</div>
+        <h1>Política de Privacidade do GPS Photo Report</h1>
+        <p class="lead">
+          O GPS Photo Report foi desenvolvido para ajudar usuários a criar relatórios fotográficos profissionais com localização GPS, marca d’água e exportação em PDF.
+          Esta política explica quais recursos o app acessa, como eles são usados e qual é a abordagem atual de privacidade do aplicativo.
+        </p>
+      </div>
+    </section>
+
+    <article class="policy">
+      <div class="meta">
+        <span class="pill">
+          <span data-lang-inline="en">Local-first usage</span>
+          <span data-lang-inline="pt">Uso local em primeiro lugar</span>
+        </span>
+        <span class="pill">
+          <span data-lang-inline="en">No unnecessary claims</span>
+          <span data-lang-inline="pt">Sem promessas desnecessárias</span>
+        </span>
+        <span class="pill">
+          <span data-lang-inline="en">Clear App Store wording</span>
+          <span data-lang-inline="pt">Texto claro para App Store</span>
+        </span>
+      </div>
+
+      <section>
+        <div data-lang="en">
+          <h2>1. Information the app uses</h2>
+          <p>GPS Photo Report may access the following device features and user content when needed for the app to function:</p>
+          <ul>
+            <li><strong>Camera</strong>, to capture photos inside the app.</li>
+            <li><strong>Photo Library</strong>, to save photos to the app album and display existing photos or videos selected by the user.</li>
+            <li><strong>Location</strong>, when the user wants to add GPS data to photos or videos, or when a geolocated photo is taken in the app.</li>
+          </ul>
+        </div>
+        <div data-lang="pt">
+          <h2>1. Informações que o app utiliza</h2>
+          <p>O GPS Photo Report pode acessar os seguintes recursos do dispositivo e conteúdos do usuário quando necessário para o funcionamento do app:</p>
+          <ul>
+            <li><strong>Câmera</strong>, para capturar fotos dentro do aplicativo.</li>
+            <li><strong>Biblioteca de Fotos</strong>, para salvar fotos no álbum do app e exibir fotos ou vídeos existentes selecionados pelo usuário.</li>
+            <li><strong>Localização</strong>, quando o usuário quiser adicionar dados de GPS a fotos ou vídeos, ou quando uma foto geolocalizada for capturada no app.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section>
+        <div data-lang="en">
+          <h2>2. How the app uses that information</h2>
+          <p>The app uses the accessed data only to support the features described on the product page and in the App Store listing, including:</p>
+          <ul>
+            <li>Adding GPS location to existing photos.</li>
+            <li>Adding GPS location to existing videos.</li>
+            <li>Taking geolocated photos with watermark.</li>
+            <li>Saving photos to the app album.</li>
+            <li>Allowing the user to select photos and generate PDF reports.</li>
+            <li>Sharing selected photos and generated PDF reports.</li>
+          </ul>
+        </div>
+        <div data-lang="pt">
+          <h2>2. Como o app usa essas informações</h2>
+          <p>O app utiliza os dados acessados apenas para suportar os recursos descritos na página do produto e na listagem da App Store, incluindo:</p>
+          <ul>
+            <li>Adicionar localização GPS a fotos existentes.</li>
+            <li>Adicionar localização GPS a vídeos existentes.</li>
+            <li>Tirar fotos geolocalizadas com marca d’água.</li>
+            <li>Salvar fotos no álbum do app.</li>
+            <li>Permitir que o usuário selecione fotos e gere relatórios em PDF.</li>
+            <li>Compartilhar fotos selecionadas e relatórios em PDF gerados.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section>
+        <div data-lang="en">
+          <h2>3. Data sharing</h2>
+          <p>GPS Photo Report is not described here as a cloud-processing or account-based platform. The workflow presented for the current version is based on direct use on the user's device.</p>
+          <p>When the user chooses to share content, the app shares only the items explicitly selected by the user within the app workflow, such as selected photos or generated PDF reports.</p>
+        </div>
+        <div data-lang="pt">
+          <h2>3. Compartilhamento de dados</h2>
+          <p>O GPS Photo Report não é descrito aqui como uma plataforma baseada em conta ou em processamento na nuvem. O fluxo apresentado para a versão atual é baseado no uso direto no dispositivo do usuário.</p>
+          <p>Quando o usuário escolhe compartilhar conteúdo, o app compartilha apenas os itens explicitamente selecionados dentro do fluxo do aplicativo, como fotos escolhidas ou relatórios em PDF gerados.</p>
+        </div>
+      </section>
+
+      <section>
+        <div data-lang="en">
+          <h2>4. Data collection</h2>
+          <p>Based on the current product description prepared for release, this policy does not claim broad personal data collection, tracking, analytics profiling, or external sale of user data.</p>
+          <p>If those behaviors are added in future versions, this privacy policy should be updated before release.</p>
+        </div>
+        <div data-lang="pt">
+          <h2>4. Coleta de dados</h2>
+          <p>Com base na descrição atual do produto preparada para lançamento, esta política não afirma coleta ampla de dados pessoais, rastreamento, perfilamento analítico ou venda externa de dados do usuário.</p>
+          <p>Se esses comportamentos forem adicionados em versões futuras, esta política de privacidade deverá ser atualizada antes da publicação.</p>
+        </div>
+      </section>
+
+      <section>
+        <div data-lang="en">
+          <h2>5. User control</h2>
+          <p>Users can control app permissions through their device settings, including camera, photos and location permissions. If a permission is denied, some app features may not work as expected.</p>
+        </div>
+        <div data-lang="pt">
+          <h2>5. Controle do usuário</h2>
+          <p>Os usuários podem controlar as permissões do aplicativo nas configurações do dispositivo, incluindo câmera, fotos e localização. Se uma permissão for negada, alguns recursos do app podem não funcionar como esperado.</p>
+        </div>
+      </section>
+
+      <section>
+        <div data-lang="en">
+          <h2>6. Children’s privacy</h2>
+          <p>GPS Photo Report is presented as a professional utility app for technical documentation, inspection and field workflows. It is not specifically directed to children.</p>
+        </div>
+        <div data-lang="pt">
+          <h2>6. Privacidade de crianças</h2>
+          <p>O GPS Photo Report é apresentado como um app utilitário profissional para documentação técnica, inspeções e fluxos de trabalho em campo. Ele não é direcionado especificamente a crianças.</p>
+        </div>
+      </section>
+
+      <section>
+        <div data-lang="en">
+          <h2>7. Changes to this policy</h2>
+          <p>This policy may be updated to reflect future changes in app features, sharing behavior, account structure, analytics, cloud usage, or legal requirements.</p>
+        </div>
+        <div data-lang="pt">
+          <h2>7. Alterações nesta política</h2>
+          <p>Esta política pode ser atualizada para refletir mudanças futuras nos recursos do app, no comportamento de compartilhamento, na estrutura de contas, em análises, uso de nuvem ou exigências legais.</p>
+        </div>
+      </section>
+
+      <section>
+        <div data-lang="en">
+          <h2>8. Contact</h2>
+          <p>For questions about this privacy policy, contact:</p>
+          <p><strong>Contact:</strong> support@infraapps.app</p>
+        </div>
+        <div data-lang="pt">
+          <h2>8. Contato</h2>
+          <p>Para dúvidas sobre esta política de privacidade, entre em contato:</p>
+          <p><strong>Contato:</strong> support@infraapps.app</p>
+        </div>
+      </section>
+    </article>
+
+    <section class="two-col">
+      <article class="card">
+        <div data-lang="en">
+          <h2>Short version</h2>
+          <p>The app uses camera, photo library and location only to support its core workflow: geolocated photos, location editing for photos and videos, watermarking, app album organization, and PDF report generation.</p>
+        </div>
+        <div data-lang="pt">
+          <h2>Versão resumida</h2>
+          <p>O app usa câmera, biblioteca de fotos e localização apenas para suportar seu fluxo principal: fotos geolocalizadas, edição de localização em fotos e vídeos, marca d’água, organização do álbum do app e geração de relatórios em PDF.</p>
+        </div>
+      </article>
+      <article class="card">
+        <div data-lang="en">
+          <h2>Publishing note</h2>
+          <p>Before publishing, make sure this policy matches the exact behavior of the released app.</p>
+        </div>
+        <div data-lang="pt">
+          <h2>Nota de publicação</h2>
+          <p>Antes de publicar, verifique se esta política corresponde exatamente ao comportamento da versão lançada do app.</p>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">GPS Photo Report • Privacy Policy</div>
+  </footer>
+
+  <script>
+    const buttons = document.querySelectorAll('[data-set-lang]');
+    const storedLang = localStorage.getItem('infraapps-lang');
+    const browserLang = (navigator.language || 'en').toLowerCase().startsWith('pt') ? 'pt' : 'en';
+    const initialLang = storedLang || browserLang;
+
+    function setLang(lang) {
+      document.body.classList.remove('lang-en', 'lang-pt');
+      document.body.classList.add(`lang-${lang}`);
+      localStorage.setItem('infraapps-lang', lang);
+      buttons.forEach(btn => btn.classList.toggle('active', btn.dataset.setLang === lang));
+      document.documentElement.lang = lang === 'pt' ? 'pt-BR' : 'en';
+    }
+
+    buttons.forEach(btn => btn.addEventListener('click', () => setLang(btn.dataset.setLang)));
+    setLang(initialLang);
+  </script>
+</body>
+</html>

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Infra Apps</title>
+
+<style>
+:root {
+  --bg:#0b1f4d;
+  --bg2:#12377f;
+  --text:#fff;
+  --muted:#c8d8f3;
+  --accent:#ff6b5f;
+}
+
+body {
+  margin:0;
+  font-family:-apple-system,BlinkMacSystemFont,sans-serif;
+  background:linear-gradient(160deg,var(--bg2),var(--bg));
+  color:var(--text);
+}
+
+.container {
+  max-width:900px;
+  margin:auto;
+  padding:40px;
+}
+
+header {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:60px;
+}
+
+.brand {
+  display:flex;
+  align-items:center;
+  gap:10px;
+  font-weight:700;
+}
+
+.brand img {
+  width:40px;
+  border-radius:10px;
+}
+
+.lang {
+  display:flex;
+  gap:10px;
+}
+
+.lang button {
+  border:none;
+  padding:8px 14px;
+  border-radius:999px;
+  cursor:pointer;
+}
+
+.active {
+  background:var(--accent);
+  color:white;
+}
+
+.hero {
+  text-align:center;
+}
+
+.hero h1 {
+  font-size:2.8rem;
+}
+
+.hero p {
+  color:var(--muted);
+}
+
+.card {
+  background:rgba(255,255,255,0.08);
+  padding:20px;
+  border-radius:16px;
+  margin-top:40px;
+}
+
+a {
+  display:inline-block;
+  margin-top:15px;
+  background:var(--accent);
+  padding:10px 16px;
+  border-radius:999px;
+  color:white;
+  text-decoration:none;
+}
+</style>
+</head>
+
+<body class="lang-en">
+
+<div class="container">
+
+<header>
+  <div class="brand">
+    <img src="assets/Icon-1024.png">
+    Infra Apps
+  </div>
+
+  <div class="lang">
+    <button onclick="setLang('en')" id="btn-en">EN</button>
+    <button onclick="setLang('pt')" id="btn-pt">PT</button>
+  </div>
+</header>
+
+<div class="hero">
+
+<div class="en">
+<h1>Apps for field work and productivity</h1>
+<p>Tools for inspections, engineering and documentation.</p>
+</div>
+
+<div class="pt" style="display:none;">
+<h1>Apps para campo e produtividade</h1>
+<p>Ferramentas para inspeções, engenharia e documentação.</p>
+</div>
+
+</div>
+
+<div class="card">
+<h2>GPS Photo Report</h2>
+
+<div class="en">
+<p>Create photo reports with GPS and PDF.</p>
+<a href="apps/gps-photo-report/">Open</a>
+</div>
+
+<div class="pt" style="display:none;">
+<p>Crie relatórios com GPS e PDF.</p>
+<a href="apps/gps-photo-report/">Abrir</a>
+</div>
+
+</div>
+
+</div>
+
+<script>
+function setLang(lang){
+  localStorage.setItem('lang',lang)
+
+  document.querySelectorAll('.en').forEach(e=>e.style.display=lang==='en'?'block':'none')
+  document.querySelectorAll('.pt').forEach(e=>e.style.display=lang==='pt'?'block':'none')
+
+  document.getElementById('btn-en').classList.toggle('active',lang==='en')
+  document.getElementById('btn-pt').classList.toggle('active',lang==='pt')
+}
+
+setLang(localStorage.getItem('lang') || (navigator.language.startsWith('pt')?'pt':'en'))
+</script>
+
+</body>
+</html>
