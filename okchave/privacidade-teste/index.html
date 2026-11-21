@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>OK Chave — Política de Privacidade (versão de teste)</title>
+<meta name="description" content="Política de privacidade da versão de teste do app OK Chave, distribuída pelo TestFlight a um grupo fechado.">
+<style>
+  :root {
+    --petroleo: #0E5E6F;
+    --petroleo-escuro: #0A3F4B;
+    --menta: #7FE0C2;
+    --tinta: #10181B;
+    --secundario: #55636A;
+    --linha: #DCE3E6;
+    --fundo: #F5F7F8;
+    --papel: #FFFFFF;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --tinta: #E8EEF0;
+      --secundario: #A3B1B7;
+      --linha: #2A3A40;
+      --fundo: #0B1417;
+      --papel: #111D21;
+      --petroleo: #6CC9D9;
+    }
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--fundo);
+    color: var(--tinta);
+    font: 17px/1.6 Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  }
+  header {
+    background: var(--petroleo-escuro);
+    color: #fff;
+    padding: 28px 20px 24px;
+  }
+  .topo, main, footer { max-width: 760px; margin: 0 auto; }
+  .marca { font-size: 22px; letter-spacing: -0.01em; margin: 0 0 6px; }
+  .marca b { font-weight: 800; color: var(--menta); }
+  .marca span { font-weight: 600; }
+  header h1 { font-size: 26px; line-height: 1.25; margin: 0 0 8px; font-weight: 700; }
+  header p { margin: 0; color: #C9DADF; font-size: 15px; }
+  main {
+    background: var(--papel);
+    border: 1px solid var(--linha);
+    border-radius: 14px;
+    margin-top: -12px;
+    padding: 8px 24px 24px;
+  }
+  @media (max-width: 800px) {
+    main { border-radius: 0; border-left: 0; border-right: 0; margin-top: 0; padding: 4px 18px 20px; }
+  }
+  h2 { color: var(--petroleo); font-size: 20px; line-height: 1.3; margin: 30px 0 10px; }
+  p { margin: 0 0 12px; }
+  ul { margin: 0 0 12px; padding-left: 22px; }
+  li { margin: 0 0 8px; }
+  a { color: var(--petroleo); text-underline-offset: 2px; }
+  .resumo {
+    border-left: 4px solid var(--petroleo);
+    background: var(--fundo);
+    padding: 12px 16px;
+    border-radius: 0 8px 8px 0;
+    margin: 20px 0 4px;
+  }
+  .tabela { overflow-x: auto; margin: 0 0 14px; }
+  table { border-collapse: collapse; width: 100%; font-size: 15px; }
+  th, td { text-align: left; vertical-align: top; padding: 9px 10px; border-bottom: 1px solid var(--linha); }
+  th { color: var(--secundario); font-weight: 600; font-size: 13px; text-transform: uppercase; letter-spacing: 0.03em; }
+  .aviso { background: #FFF6D6; color: #4A3A00; padding: 12px 16px; border-radius: 8px; }
+  @media (prefers-color-scheme: dark) { .aviso { background: #3A3110; color: #F3E3A6; } }
+  footer { color: var(--secundario); font-size: 14px; padding: 18px 20px 40px; }
+</style>
+</head>
+<body>
+<header>
+  <div class="topo">
+    <p class="marca"><b>OK</b> <span>Chave</span></p>
+    <h1>Política de Privacidade — versão de teste</h1>
+    <p>Atualizada em 21/11/2026</p>
+  </div>
+</header>
+
+<main>
+  <div class="resumo">
+    <strong>Em resumo:</strong> o desenvolvedor não recebe os dados das vistorias. Recebe apenas, pela Apple, as informações do teste descritas na seção 4, e só para corrigir erros e melhorar o app.
+  </div>
+
+  <h2>1. Sobre esta política</h2>
+  <p>Esta política vale só para a <strong>versão de teste</strong> do OK Chave, distribuída pelo TestFlight da Apple a um <strong>grupo fechado de testadores convidados</strong>. Ela será substituída pela política completa quando o app for lançado na App Store.</p>
+
+  <h2>2. Responsável e contato</h2>
+  <p>O OK Chave é desenvolvido por <strong>João Melo Ferreira</strong>, responsável pelo tratamento dos dados do teste descritos na seção 4, nos termos da Lei Geral de Proteção de Dados Pessoais (Lei nº 13.709/2018 – LGPD).</p>
+  <p>Dúvidas, pedidos ou saída do teste: <a href="mailto:joaomferreira.teste@gmail.com">joaomferreira.teste@gmail.com</a>. Respondemos em até 15 dias.</p>
+
+  <h2>3. Dados das vistorias</h2>
+  <p>Tudo o que o testador registra no app fica <strong>no próprio aparelho e na conta iCloud dele</strong>. Isso inclui dados do imóvel e do cliente, apontamentos, fotos, plantas, assinaturas e agenda. O desenvolvedor não tem servidor próprio e não tem acesso a esses dados.</p>
+  <ul>
+    <li><strong>Ditado e IA:</strong> a transcrição e a organização do texto são feitas no próprio aparelho, sem envio a serviços de terceiros.</li>
+    <li><strong>Fotos:</strong> são gravadas sem a localização GPS.</li>
+    <li><strong>Permissões:</strong> câmera, microfone, reconhecimento de fala e notificações são pedidas só quando o recurso é usado e podem ser retiradas nos Ajustes do aparelho.</li>
+    <li><strong>Sem rastreamento:</strong> o app não usa anúncios, análise de uso de terceiros nem rastreamento.</li>
+  </ul>
+  <p>O iCloud é um serviço da Apple e segue a <a href="https://www.apple.com/legal/privacy/pdfs/apple-privacy-policy-br.pdf">Política de Privacidade da Apple</a>.</p>
+
+  <h2>4. Dados do teste recebidos pela Apple</h2>
+  <p>O TestFlight é operado pela Apple, que repassa ao desenvolvedor as informações abaixo. Elas são usadas <strong>só para corrigir erros e melhorar o app</strong>, nunca para outra finalidade.</p>
+  <div class="tabela">
+    <table>
+      <thead><tr><th>Dado</th><th>Quando é recebido</th></tr></thead>
+      <tbody>
+        <tr><td>Nome e e-mail do testador</td><td>Ao ser convidado por e-mail</td></tr>
+        <tr><td>Modelo do aparelho, versão do sistema e do app</td><td>Junto com falhas e comentários</td></tr>
+        <tr><td>Relatórios de falha (crash)</td><td>Quando o app fecha inesperadamente e o envio está permitido</td></tr>
+        <tr><td>Comentários e capturas de tela</td><td>Quando o testador envia pelo TestFlight</td></tr>
+        <tr><td>Instalações e sessões de uso</td><td>Contagens geradas pelo TestFlight</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>Base legal: execução do teste para o qual o testador aceitou o convite (art. 7º, V) e legítimo interesse em corrigir o app (art. 7º, IX). A Apple coleta falhas e uso automaticamente durante o teste; o tratamento por ela segue a página <a href="https://www.apple.com/legal/privacy/data/en/test-flight/">TestFlight &amp; Privacy</a>.</p>
+  <p class="aviso"><strong>Atenção:</strong> capturas de tela enviadas como comentário mostram o que estiver na tela. Antes de enviar, confira se não aparecem dados reais de clientes.</p>
+
+  <h2>5. Cuidados durante o teste</h2>
+  <ul>
+    <li><strong>Use dados fictícios sempre que puder.</strong> Por ser uma versão de teste, pode haver falhas ou perda de dados. Se registrar dados reais de clientes, o testador profissional responde por eles perante a LGPD, como em qualquer ferramenta de trabalho.</li>
+    <li><strong>Compartilhamento:</strong> ao compartilhar uma vistoria pelo iCloud, o convidado vê todo o conteúdo dela, inclusive nome e CPF do cliente. O acesso pode ser retirado a qualquer momento em Participantes.</li>
+    <li><strong>Segurança:</strong> os dados ficam sob a criptografia do aparelho e do iCloud. Recomendamos código de bloqueio e autenticação de dois fatores na conta Apple.</li>
+    <li><strong>Confidencialidade:</strong> a versão de teste é de uso restrito ao grupo convidado. Pedimos que não divulgue telas ou funcionalidades sem autorização.</li>
+  </ul>
+
+  <h2>6. Seus direitos, saída do teste e prazos</h2>
+  <ul>
+    <li><strong>Direitos (LGPD, art. 18):</strong> confirmar o tratamento, acessar, corrigir e pedir a eliminação dos dados do teste, entre outros. Peça pelo e-mail da seção 2. Pedidos sobre dados do TestFlight também são feitos ao desenvolvedor.</li>
+    <li><strong>Sair do teste:</strong> apague o app beta do aparelho ou peça a remoção do grupo por e-mail. Para apagar também a cópia no iCloud, apague as vistorias no app antes de removê-lo.</li>
+    <li><strong>Por quanto tempo guardamos:</strong> comentários, capturas e relatórios de falha são mantidos até o fim da fase de teste e apagados em até 90 dias depois do lançamento na App Store.</li>
+    <li><strong>Autoridade:</strong> você também pode peticionar à Autoridade Nacional de Proteção de Dados (ANPD).</li>
+    <li><strong>Alterações:</strong> mudanças nesta política serão avisadas no campo “O que testar” do TestFlight. A data no topo indica a versão vigente.</li>
+  </ul>
+</main>
+
+<footer>
+  <p>OK Chave — vistoria de entrega de imóvel novo · Contato: <a href="mailto:joaomferreira.teste@gmail.com">joaomferreira.teste@gmail.com</a></p>
+</footer>
+</body>
+</html>
